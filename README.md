@@ -14,6 +14,10 @@ Typer + Kafka + PDM을 기반으로 만든 **Kafka CLI 채팅 도구**입니다.
 - PDM으로 의존성 및 스크립트 관리
 
 ## 실행 예시
+```bash
+$ source .venv/bin/activate
+$ pdm install
+```
 - producer
 ```bash
 $ chatpro
