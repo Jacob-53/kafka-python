@@ -24,12 +24,12 @@ def consume_loop(broker, topic, my_name):
         if sender == my_name:
             continue  # 자기 메시지는 무시
 
-        print(f"\n🧑‍💬 {sender} > {msg}\n>>> ", end="", flush=True)
+        print(f"\n🧑   {sender} > {msg}\n>>> ", end="", flush=True)
 
 def main():
-    broker = input("Kafka broker 주소 (예: 34.64.x.x:9093): ")
+    broker = input("Kafka broker 주소 (예: x.x.x.x:yyyy): ")
     topic = input("채팅 토픽 이름 (예: chatroom): ")
-    my_name = input("내 이름 (식별자): ")
+    my_name = input("이름 (사용자): ")
 
     # 백그라운드 Consumer 쓰레드 실행
     thread = threading.Thread(
