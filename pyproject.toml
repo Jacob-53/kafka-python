@@ -20,3 +20,4 @@ package-dir = "src"
 
 [project.scripts]
 chatpro = "chatpro.main:entry_point"
+chatcon = "chatcon.main:entry_point"
