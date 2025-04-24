@@ -13,14 +13,18 @@ def entry_point():
     )
 
     typer.echo(f"Kafka 연결됨: {broker} / 토픽: {topic}")
-    typer.echo("채팅 시작! (Ctrl+C로 종료)\n")
+    typer.echo("채팅 시작! (종료하려면 'exit' 입력하세요)\n")
 
     try:
         while True:
             msg = typer.prompt("You")
+            if msg.strip().lower() == "exit":
+                typer.echo("채팅 종료합니다!")
+                break
             producer.send(topic, msg)
             producer.flush()
     except KeyboardInterrupt:
-        typer.echo("\n🛑 채팅 종료")
+        typer.echo("\n🛑 채팅 강제 종료")
+    finally:
         producer.close()
 
