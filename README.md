@@ -6,7 +6,7 @@ Typer + Kafka + PDM을 기반으로 만든 **Kafka CLI 채팅 도구**입니다.
 
 ## ✨ 주요 기능
 - Kafka Producer CLI 실행 (`pdm run chatpro`, bashrc에 alias 등록시 `chatpro` 명령으로 실행 가능 )
-  - < alias chatpro="$(pdm info --bin)/chatpro" > 
+  - < alias chatpro="/<사용자경로>/.venv/bin/chatpro" > 
 - IP와 토픽을 프롬프트에서 입력
 - 실시간 메시지 입력 → Kafka로 전송
 - `exit` 입력 또는 `Ctrl+C`로 종료
