@@ -9,7 +9,7 @@ def entry_point():
     broker = f"{ip}:9093"
     producer = KafkaProducer(
         bootstrap_servers=broker,
-        value_serializer=lambda v: json.dumps(v).encode('utf-8')
+        value_serializer=lambda v: json.dumps(v,ensure_ascii=False).encode('utf-8')
     )
 
     typer.echo(f"Kafka 연결됨: {broker} / 토픽: {topic}")
@@ -20,6 +20,8 @@ def entry_point():
             msg = typer.prompt("You")
             if msg.strip().lower() == "exit":
                 typer.echo("채팅 종료합니다!")
+                producer.send(topic, msg)
+                producer.flush()
                 break
             producer.send(topic, msg)
             producer.flush()
